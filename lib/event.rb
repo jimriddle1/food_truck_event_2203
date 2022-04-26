@@ -1,11 +1,11 @@
 class Event
 
-  attr_reader :name, :food_trucks
+  attr_reader :name, :food_trucks, :date
 
   def initialize(name)
     @name = name
     @food_trucks = []
-    # @total_inventory = populate_inventory
+    @date = Date.today.strftime("%d/%m/%Y")
   end
 
   def add_food_truck(food_truck)
@@ -33,7 +33,6 @@ class Event
     sorted = unsorted.sort_by do |item|
       item.name
     end
-    # require 'pry'; binding.pry
   end
 
   def total_inventory
@@ -51,7 +50,6 @@ class Event
     inventory = total_inventory.select do |item, info|
       info[:quantity] > 50 && info[:food_trucks].count > 1
     end.keys
-    # require 'pry'; binding.pry
   end
 
   def sell(item, qty)
