@@ -54,5 +54,21 @@ class Event
     # require 'pry'; binding.pry
   end
 
+  def sell(item, qty)
+    if total_inventory[item][:quantity] < qty
+      return false
+    else
+      @food_trucks.each do |truck|
+        if truck.inventory[item] < qty
+          qty -= truck.inventory[item]
+          truck.inventory[item] = 0
+        else
+          truck.inventory[item] -= qty
+        end
+      end
+      return true
+    end
+  end
+
 
 end

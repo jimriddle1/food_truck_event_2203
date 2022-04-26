@@ -20,4 +20,8 @@ class FoodTruck
       item[0].price * item[1]
     end
   end
+
+  # def reduce_inventory(qty)
+  #   @inventory -= qty
+  # end
 end
