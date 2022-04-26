@@ -9,4 +9,10 @@ describe Event do
       expect(event).to be_an_instance_of(Event)
     end
 
+    it 'has readable attrs' do
+      event = Event.new("South Pearl Street Farmers Market")
+      expect(event.name).to eq("South Pearl Street Farmers Market")
+      expect(event.food_trucks).to eq([])
+    end
+
 end
