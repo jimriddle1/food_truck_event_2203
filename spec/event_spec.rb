@@ -159,15 +159,15 @@ describe Event do
       expected = {item1 => {quantity: 100, food_trucks: [food_truck1, food_truck3]},
                   item2 => {quantity: 7, food_trucks: [food_truck1]},
                   item3 => {quantity: 35, food_trucks: [food_truck2, food_truck3]},
-                  item4 => {quantity: 40, food_trucks: [food_truck2]}
+                  item4 => {quantity: 50, food_trucks: [food_truck2]}
                 }
 
-      # require 'pry'; binding.pry
+      # require 'pry'; bisnding.pry
 
-      expect(event.total_inventory).to eq({item1 => 100, item2 => 7, item3 => 35, item4 => 50})
+      expect(event.total_inventory).to eq(expected)
     end
 
-    xit 'can give me overstocked items' do
+    it 'can give me overstocked items' do
       event = Event.new("South Pearl Street Farmers Market")
       food_truck1 = FoodTruck.new("Rocky Mountain Pies")
       item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
