@@ -22,4 +22,16 @@ class Event
       food_truck.inventory.include?(item)
     end
   end
+
+  def sorted_item_list
+    unsorted = @food_trucks.map do |truck|
+      truck.inventory.map do |item|
+        item[0]
+      end
+    end.flatten.uniq
+    sorted = unsorted.sort_by do |item|
+      item.name
+    end
+    # require 'pry'; binding.pry
+  end
 end
